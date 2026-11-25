@@ -27,7 +27,7 @@ createRoot(document.getElementById("root")!).render(
             cursor: pointer;
           }
           a {
-            color: #1672f7;
+            text-decoration: none;
           }
         `}
       />

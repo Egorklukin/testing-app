@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import {
   LogoIcon,
   ProfileIcon,
@@ -49,11 +49,10 @@ const RouteContainer = styled.div<{ isActive?: boolean }>`
   padding: 10px;
 `;
 
-const RouteTitle = styled.p<{ isActive?: boolean }>`
+const RouteTitle = styled.p`
   font-weight: 500;
   font-size: 14px;
   margin: 0;
-  color: ${({ isActive }) => (isActive ? "#0E73F6" : "#09090B")};
 `;
 
 const Main = styled.main`
@@ -67,18 +66,45 @@ export function StudentLayout() {
           <LogoIcon w={163} h={23} />
         </Logo>
         <RoutesContainer>
-          <RouteContainer>
-            <TestsIcon size={24} />
-            <RouteTitle>Тестирования</RouteTitle>
-          </RouteContainer>
-          <RouteContainer>
-            <StatsIcon size={20} />
-            <RouteTitle>Статистика</RouteTitle>
-          </RouteContainer>
-          <RouteContainer isActive>
-            <ProfileIcon w={16} h={20} isActive />
-            <RouteTitle isActive>Профиль</RouteTitle>
-          </RouteContainer>
+          <NavLink
+            to="/student/tests"
+            className={({ isActive }) =>
+              isActive ? "nav-link--active" : "nav-link"
+            }
+          >
+            {({ isActive }) => (
+              <RouteContainer isActive={isActive}>
+                <TestsIcon size={24} />
+                <RouteTitle>Тестирования</RouteTitle>
+              </RouteContainer>
+            )}
+          </NavLink>
+          <NavLink
+            to="/student/stats"
+            className={({ isActive }) =>
+              isActive ? "nav-link--active" : "nav-link"
+            }
+          >
+            {({ isActive }) => (
+              <RouteContainer isActive={isActive}>
+                <StatsIcon size={20} />
+                <RouteTitle>Статистика</RouteTitle>
+              </RouteContainer>
+            )}
+          </NavLink>
+          <NavLink
+            to="/student/profile"
+            className={({ isActive }) =>
+              isActive ? "nav-link--active" : "nav-link"
+            }
+          >
+            {({ isActive }) => (
+              <RouteContainer isActive={isActive}>
+                <ProfileIcon w={16} h={20} isActive />
+                <RouteTitle>Профиль</RouteTitle>
+              </RouteContainer>
+            )}
+          </NavLink>
         </RoutesContainer>
       </NavContainer>
       <Main>

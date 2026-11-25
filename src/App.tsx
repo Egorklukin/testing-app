@@ -1,10 +1,6 @@
 import { Route, Routes } from "react-router";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
-import {
-  ProfilePage,
-  StatisticsPage,
-  TestsPage,
-} from "./pages/StudentPages/StudentPages";
+import { ProfilePage, StatisticsPage } from "./pages/StudentPages/StudentPages";
 import { StudentLayout } from "./components/Layouts/StudentLayout";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { AdminLayout } from "./components/Layouts/AdminLayout";
@@ -13,7 +9,8 @@ import {
   AdminTestsPAge,
   AdminUsersPage,
 } from "./pages/AdminPages";
-
+import "./App.css";
+import { TestsPage } from "./pages/TestsPage/TestsPage";
 function App() {
   return (
     <>
@@ -27,7 +24,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/student" element={<StudentLayout />}>
           <Route path="tests" element={<TestsPage />} />
-          <Route path="statistics" element={<StatisticsPage />} />
+          <Route path="stats" element={<StatisticsPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
