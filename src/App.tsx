@@ -9,8 +9,8 @@ import {
   AdminTestsPAge,
   AdminUsersPage,
 } from "./pages/AdminPages";
-import "./App.css";
 import { TestsPage } from "./pages/TestsPage/TestsPage";
+import { TestPage } from "./pages/TestPage/TestPage";
 function App() {
   return (
     <>
@@ -24,6 +24,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/student" element={<StudentLayout />}>
           <Route path="tests" element={<TestsPage />} />
+          <Route path="tests/:testId" element={<TestPage />} />
           <Route path="stats" element={<StatisticsPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>

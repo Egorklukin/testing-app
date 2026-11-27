@@ -30,7 +30,9 @@ const NavContainer = styled.div`
     border-radius: 0;
   }
 `;
-const Logo = styled.div``;
+const Logo = styled.div`
+  color: #0e73f6;
+`;
 
 const RoutesContainer = styled.div`
   display: flex;
@@ -47,6 +49,14 @@ const RouteContainer = styled.div<{ isActive?: boolean }>`
   background-color: ${({ isActive }) => (isActive ? "#e8f5ff" : "transparent")};
   border-radius: 10px;
   padding: 10px;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  &.active {
+    color: #0e73f6;
+  }
+  color: black;
 `;
 
 const RouteTitle = styled.p`
@@ -66,45 +76,30 @@ export function StudentLayout() {
           <LogoIcon w={163} h={23} />
         </Logo>
         <RoutesContainer>
-          <NavLink
-            to="/student/tests"
-            className={({ isActive }) =>
-              isActive ? "nav-link--active" : "nav-link"
-            }
-          >
+          <StyledNavLink to="/student/tests">
             {({ isActive }) => (
               <RouteContainer isActive={isActive}>
                 <TestsIcon size={24} />
                 <RouteTitle>Тестирования</RouteTitle>
               </RouteContainer>
             )}
-          </NavLink>
-          <NavLink
-            to="/student/stats"
-            className={({ isActive }) =>
-              isActive ? "nav-link--active" : "nav-link"
-            }
-          >
+          </StyledNavLink>
+          <StyledNavLink to="/student/stats">
             {({ isActive }) => (
               <RouteContainer isActive={isActive}>
                 <StatsIcon size={20} />
                 <RouteTitle>Статистика</RouteTitle>
               </RouteContainer>
             )}
-          </NavLink>
-          <NavLink
-            to="/student/profile"
-            className={({ isActive }) =>
-              isActive ? "nav-link--active" : "nav-link"
-            }
-          >
+          </StyledNavLink>
+          <StyledNavLink to="/student/profile">
             {({ isActive }) => (
               <RouteContainer isActive={isActive}>
                 <ProfileIcon w={16} h={20} isActive />
                 <RouteTitle>Профиль</RouteTitle>
               </RouteContainer>
             )}
-          </NavLink>
+          </StyledNavLink>
         </RoutesContainer>
       </NavContainer>
       <Main>
